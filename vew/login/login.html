@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../../../Semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="cssLogin.css">
+    <link rel="stylesheet" href="../../../Semantic/pace-theme-default.min.css">
+
+    <script src="../../../Semantic/pace.min.js"></script>
+    <script src="../../../semantic/jquery.js" type="text/javascript"></script>
+    <script src="../../../semantic/jquery/jquery.js" type="text/javascript"></script>
+    <script src="login.js"></script>
+    <script src="../../functions/encodeDecode.js"></script>
+    <script type="text/javascript" src="../../servicos/servicoLogin.js"></script>
+    <script src="../../../Semantic/semantic.min.js"></script>
+
+<body style="background-color: #00BFFF;">
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <div style="background-color: #fff; border: solid silver 1px; height: 110px; " class="ui message">
+                <img id="logo" style="width:175px; height:60px;" src="../../img/bi.jpg" alt="blumenau Iluminacao">
+                <div style="display: none;  margin-top: -3px;" id="alert" class="ui icon message alert">
+                    <i class="exclamation icon red"></i>
+                    <div class="content">
+                        <div class="header">
+                            Atenção!!
+                        </div>
+                        <p>
+                            <font color="red">Usuário não liberado para usar o sistema, Verifique Grupo de acesso!
+                            </font>
+                        </p>
+                    </div>
+                </div>
+                <div style="display: none;  margin-top: -3px; " id="alertCampos" class="ui icon message alert">
+                    <i class="exclamation icon red"></i>
+                    <div class="content">
+                        <div class="header">
+                            Atenção!!
+                        </div>
+                        <p>
+                            <font color="red">Informe o usuário e senha para logar no sistema!</font>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <form class="ui large form" action="#" method="get" class="ui large form">
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <div class="ui left icon  input">
+                            <i class="user icon blue"></i>
+                            <input id="user" type="text" name="users" placeholder="Usuário">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <!-- <i class="lock icon" style=" float: right;"></i> -->
+                        <!-- <div class="ui   icon input">
+                            
+                            <input id="password" type="password" name="password" placeholder="Senha">
+                            <i class="eye slash icon" id="toggleSenha" style="cursor: pointer; float: left !important;"></i>
+                        </div> -->
+                        <div class="ui input" style="position: relative; width: 100%;">
+                            <i class="lock icon blue"
+                                style="position: absolute; left: 10px; top: 40%; transform: translateY(-50%); z-index: 2; color: rgba(0,0,0,.6);"></i>
+
+                            <input id="password" type="password" name="password" placeholder="   Senha"
+                                style="padding-left: 30px; padding-right: 30px;" />
+
+                            <i onclick="mostrarSenha()" id="togglePassword" class="eye slash icon blue"
+                                style="position: absolute; right: 10px; top: 40%; transform: translateY(-50%); cursor: pointer; z-index: 2; color: rgba(0,0,0,.6);"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui  icon fluid selection dropdown ">
+                            <i class="database icon blue"></i>
+                            <input type="hidden" name="ambiente" id="ambiente">
+                            <div class="default text">Selecione o Ambiente</div>
+                            <div class="menu">
+                                <div class="item" data-value="H">Homologação</div>
+                                <div class="item" data-value="P">Produção</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style=" display:none; " id="loading"><i class="sync alternate icon big sync-icon blue"></i>
+                    </div><br>
+
+                    <div onClick="loginValidate()" class="ui fluid large  submit button blue"><i
+                            class="lock  icon "></i>
+                        Login
+                    </div><br>
+                </div>
+
+            </form>
+
+            <div class="ui message">
+                Está sem acesso? <a href="https://blumenauiluminacao.movidesk.com/Account/Login"
+                    target="_blank">Solicite aqui</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

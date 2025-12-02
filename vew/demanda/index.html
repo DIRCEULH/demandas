@@ -1,0 +1,328 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <link rel="stylesheet" type="text/css" href="../../../Semantic/semantic.min.css">
+  <link rel="stylesheet" href="../../../Semantic/jquery/jquery.datetimepicker.min.css">
+  <link rel="stylesheet" href="../../../Semantic/jquery-ui.css">
+  <link rel="stylesheet" href="../../../Semantic/jquery.modal.css" />
+  <link rel="stylesheet" href="css.css" />
+  <link rel="stylesheet" href="../../../Semantic/jquery.toast.min.css">
+  <link rel="stylesheet" href="../../../Semantic/pace-theme-default.min.css">
+
+  <script src="../../../Semantic/pace.min.js"></script>
+  <script src="../../../Semantic/xlsx.full.min.js"></script>
+  <script src="../../../semantic/jquery.js" type="text/javascript"></script>
+  <script src="../../../semantic/jquery/jquery.js" type="text/javascript"></script>
+  <script src="../../../Semantic/jquery/datetimepicker.js"></script>
+  <script src="../../../semantic/semantic.min.js"></script>
+  <script type="text/javascript" src="../../../semantic/jquery-ui.js"></script>
+  <script type="text/javascript" src="../../servicos/servicoDemanda.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script src="../../../semantic/jquery.modal.js"></script>
+  <script src="../../../Semantic/jquery/jquery.datetimepicker.full.js"></script>
+  <script src="../../../Semantic/jquery.toast.min.js"></script>
+  <script src="../../functions/filtroDeTabela.js"></script>
+  <script src="../../functions/ordenarColunas.js"></script>
+  <script src="../../functions/exportarParaExcel.js"></script>
+
+
+</head>
+
+<body>
+
+  <div class="ui main fluid container" style="position:fixed;">
+
+    <div id="noprint" class="ui menu big">
+      <a style="background-color: #fff; border: solid silver 1px; " class="active item"
+      href="../../" >
+        <img style="width:85px; height:32px;" src="../../img/bi.jpg" alt="blumenau Iluminacao">
+      </a>
+      <div class="ui menu">
+        <a href="../demanda/index.html" class="item ">
+          <i class="folder open icon blue"></i> Projeção
+        </a>
+        <a href="../demanda/index.html" target="_blank" class="item">
+          <i class="arrow right icon blue"></i>
+        </a>
+      </div>
+      <div class="ui menu">
+        <a href="../parametros/index.html" class="item ">
+          <i class="folder open icon blue"></i> Parâmetros
+        </a>
+        <a href="../parametros/index.html" target="_blank" class="item">
+          <i class="arrow right icon blue"></i>
+        </a>
+      </div>
+      <div class="ui menu">
+        <a href="../consumo/index.html" class="item ">
+          <i class="folder open icon blue"></i> Consumo
+        </a>
+        <a href="../consumo/index.html" target="_blank" class="item">
+          <i class="arrow right icon blue"></i>
+        </a>
+      </div>
+      <a class="item  ">
+        <i class="user icon blue"></i>
+        <div class="ui input">
+        <input disabled id="logado" />
+        </div>
+      </a>
+      <a class="item " href=" ../login/login.html">
+        <i class="plane icon blue"></i> Sair
+      </a>
+      <a style=" width:100%; display:inline; float: left; "></a>
+      <a style="background-color: #fff; border: solid silver 1px;" class="active item  "
+        href="https://blumenauiluminacao.com.br/" target="_blank">
+        <img style="width:85px; height:32px;" src="../../img/bi.jpg" alt="blumenau Iluminacao" height="30" width="150%">
+      </a>
+    </div>
+
+    <div style="margin-top:-10px; " id="noprint" class="ui menu">
+
+
+      <div class="left menu">
+        <div class="item">
+          <div class="ui transparent icon input">
+            <input id="search-id" type="text" placeholder="Produto....">
+           <!-- <i onclick="myFunctionSearch('#search-id', '#selectedId')"  class="search link icon"></i> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="left menu">
+        <div class="item">
+          <div class="ui transparent icon input">
+            <input id="search-lancamento" type="text" placeholder="Lancamento....">
+           <!-- <i  onclick=" myFunctionSearch('#search-lancamento', '#selectedLancamento')" class="search link icon"></i> -->
+          </div>
+        </div>
+      </div>  
+      
+      <div class="left menu">
+        <div class="item">
+          <div class="ui transparent icon input">
+            <input id="search-demanda" type="text" placeholder="Demanda....">
+           <!-- <i  onclick=" myFunctionSearch('#search-demanda', '#selectedDemanda')" class="search link icon"></i> -->
+          </div>
+        </div>
+      </div>      
+      <div class="left menu" >
+        <div class="item">
+          <i  onclick=" myFunctionSearch('#search-id', '#selectedId', '#search-lancamento', '#selectedLancamento','#search-demanda', '#selectedDemanda','.dadosDemandas','#dataTr')" class="search link icon"></i>
+        </div>
+      </div>
+
+
+      <div class="left menu" >
+        <div class="item">
+            <div style="width:38px;"><i id="loading" style=" display:none; float:right;" class="sync alternate icon big sync-icon"></i></div>
+        </div>
+      </div>
+
+
+      
+
+      <!-- <div class="right menu" >
+        <div class="item">
+         <i class="arrows alternate horizontal icon"></i> 
+        </div>
+      </div>  -->
+
+      <div class="right menu" style="width:5px;">
+        <div class="item">
+          <div class="ui transparent icon input">
+            <input id="search-codagc" type="text" placeholder="Agrup. (C109,C075)">
+           <!-- <i  onclick=" myFunctionSearch('#search-codagc', '#selectedComercial')" class="search link icon"></i> -->
+          </div>
+        </div>
+      </div> 
+
+      <!-- <div class="right menu"  style="width:5px;">
+        <div class="item">
+          <div class="ui transparent icon input">
+            <i class="calendar icon"></i>
+            <input onchange="" id="datepicker" type="text" placeholder="Filtrar Data do registro...">
+          </div>
+        </div>
+      </div> -->
+      
+      <div class="right menu">
+        <div class="item ">
+          <button onclick="FiltrarDemandas()" class="ui button printButton">
+            <i class="search icon"></i> Buscar
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display: none; position : relative; width: 400px;" id="modalSalvar" class="ui modal form modalSalvar">
+      <form autocomplete="on">
+
+        <div class="fields">
+          <i class="exclamation icon ui text"></i>
+          <div class="field retornoModalSalvar "> </div>
+        </div>
+        <div class="ui divider"></div>
+
+        <a href="../parametros/index.html" class="ui blue button cliqueAqui" >
+          <i class="external alternate icon"></i>
+          Clique Aqui
+        </a>
+      </form>
+    </div>
+
+
+
+
+    <div  style="display: none; position : fixed; width: 600px; " id="modalObsevacao" class="ui modal form modalObsevacao">
+    <form autocomplete="on" >
+
+      <div class="field ">
+        <label></label>
+        <div class="ui form">
+          <div class="field">
+            <div><i class="tag icon"></i><label id="codigoObs"></label></div><br>
+            <label>Observação:</label>
+            <textarea id="observacao" rows="2"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div id="salvarBotao" onclick="salvarObservacao(document.getElementById('codigoObs').textContent.trim())" class="ui button blue" tabindex="0"><i class="save icon"></i> Salvar</div>
+
+      <div id="retorno"  class="ui button green" tabindex="0"><i class="check icon"></i> Salvo com sucesso!</div>
+
+    </form>
+    </div>
+
+    <div  style="display: none; position : fixed; width: 600px; " id="modalAlertObrigaObs" class="ui modal form modalAlertObrigaObs">
+      <form autocomplete="on" >
+  
+        <div class="field ">
+          <label></label>
+          <div class="ui form">
+          </div>
+        </div>
+        <div  class="ui button red" tabindex="0"><i class="exclamation  icon"></i> Observação obrigatória!!</div>
+      </form>
+    </div>
+
+    <div  style="display: none; position : fixed; width: 600px; " id="modalAlertValorAlterado" class="ui modal form modalAlertValorAlterado">
+      <form autocomplete="on" >
+  
+        <div class="field ">
+          <label></label>
+          <div class="ui form">
+          </div>
+        </div>
+        <div  class="ui button red" tabindex="0"><i class="exclamation  icon"></i>Valor não alterado!!</div>
+      </form>
+    </div>
+
+    <div  style="display: none; position : fixed; width: 600px; " id="modalAlertTemCerteza" class="ui modal form modalAlertTemCerteza">
+      <form autocomplete="on" >
+  
+        <div class="field ">
+          <label></label>
+          <div class="ui form">
+            <span style="font-size: 20; color: red;" >Tem certeza de que deseja finalizar? Após isso, não será possível alterar as informações.</span>
+          </div>
+        </div>
+        <div id="openModalBtnFinalizar" class="ui button red" tabindex="0"><i class="thumbs up outline icon"></i> Sim</div>
+        <div id="btnFechar" class="ui button blue" tabindex="0"><i class="thumbs down outline icon"></i> Não</div>
+      </form>
+    </div>
+
+
+
+    <div id="tabelaDemandas" class="table-wrapper">
+      <table id="tabelaDadosDemanda" class="ui celled striped table fixed-header">
+        <thead>
+          <tr>
+            <th style="text-align: center; width:25px " class="collapsing center ">CÓDIGO <i  onclick="ordenarColunaCombinada('tabelaDadosDemanda','tabelaDadosDemanda', 0, 'A')" class="sort icon" style="cursor: pointer;"></i></th>
+            <th class="collapsing">COMERCIAL <i onclick="ordenarColunaCombinada('tabelaDadosDemanda','tabelaDadosDemanda', 1, 'A')"  class="sort icon" style="cursor: pointer;"></i></th>
+            <th class="collapsing">LANÇAMENTO <i onclick="ordenarColunaCombinada('tabelaDadosDemanda','tabelaDadosDemanda', 2, 'A')" class=" sort icon" style="cursor: pointer;"></i></th>
+            <th style="text-align: left;" class="collapsing">DEMANDA  <i onclick="ordenarColunaCombinada('tabelaDadosDemanda','tabelaDadosDemanda', 3, 'A')" class=" sort icon" style="cursor: pointer;"></i></th>
+            <th id="ellipsed" style="max-width: 300px; text-align: left;" class="collapsing ">DESCRIÇÃO  <i onclick="ordenarColunaCombinada('tabelaDadosDemanda','tabelaDadosDemanda', 4, 'A')" class=" sort icon" style="cursor: pointer;"></i></th>
+            <th style="text-align: center;" class="collapsing">CURVA <i onclick="ordenarColunaCombinada('tabelaDadosDemanda','tabelaDadosDemanda', 5, 'A')" class=" sort icon" style="cursor: pointer;"></i></th>
+            <th class="collapsing anoMes1">MÊS 1</th>
+            <th class="collapsing anoMes2">MÊS 2</th>
+            <th class="collapsing anoMes3">MÊS 3</th>
+            <th class="collapsing anoMes4">MÊS 4</th>
+            <th class="collapsing anoMes5">MÊS 5</th>
+            <th class="collapsing anoMes6">MÊS 6</th>
+            <th class="collapsing ">R$ FAT. MÉD. </th>
+            <th class="collapsing ">PROJETADO </th>
+            <th style="max-width:5px;" class="collapsing ">OBS..</th>
+            <th class="collapsing anoMes7"></th>
+            <th class="collapsing">QTD. MÉD.</th>
+            <th class="collapsing">MÉDIA 2M</th>
+            <th style="text-align: center;" class="collapsing">ESTOQUE </th>
+            <th style="text-align: center; " class="collapsing anoMes6 "> MÊS ANTERIOR</th>
+            <th style="text-align: center;" class="collapsing anoMes5 "> DOIS MÊS ANTERIOR</th>
+            <th style="text-align: center;" class="collapsing ">% DIF. 4 MESES <i onclick="ordenarColunaCombinada('tabelaDadosDemanda','tabelaDadosDemanda', 21, 'A')"  class=" sort icon" style="cursor: pointer;"></i></i></th>
+            <th style="text-align: center;" class="collapsing ">% DIF. 2 MESES <i onclick="ordenarColunaCombinada('tabelaDadosDemanda','tabelaDadosDemanda', 22, 'A')"  class=" sort icon" style="cursor: pointer;"></i></i></th>
+            <th style="text-align: center;" class="collapsing "> MÊSES EST.</th>
+          </tr>
+        </thead>
+        <tbody class="dadosDemandas "></tbody>
+      </table>
+    </div>
+
+    <div class="table-container tableRodaPe">
+      <table id="" class="ui celled  table ">
+        <tfoot class="full-width">
+          <tr>
+            <th colspan="12">
+              <div onclick="modalTemCerteza()" id="salvarPrevisao" class="ui right floated small  labeled icon button ">
+                <i class="save icon"></i> Finalizar
+              </div>
+              <div class="ui small  button ">
+                <p>Total de registros: <span id="totalRegistros">0</span></p>
+              </div>
+              <div id="baixaExcel" style="float: right; " class="ui floating dropdown labeled icon button">
+                <i class="download icon"></i>
+                <span class="text">Baixar</span>
+                <div class="menu">
+                  <div class="item"
+                    onclick="exportarParaExcel('tabelaDadosDemanda','', 'dados_demanda.xlsx')">
+                    <i class="file excel icon"></i> (.xlsx)
+                  </div>
+                  <div class="item"
+                    onclick="exportarParaExcel('tabelaDadosDemanda','', 'dados_demanda.xls')">
+                    <i class="file excel outline icon"></i> (.xls)
+                  </div>
+                  <div class="item"
+                    onclick="exportarParaExcel('tabelaDadosDemanda','', 'dados_demanda.csv')">
+                    <i class="file excel outline icon"></i> (.csv)
+                  </div>
+                </div>
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+
+  </div>
+  <div class="iconBlu" style="z-index: -1; position:fixed; width:150px; height:150px;  top: 50%; margin-top: -25px;  left: 50%; margin-left: -100px; ">
+    <img src="../../../img/b.png" alt="blumenau Iluminacao" height="30" width="150%">
+  </div>
+  <style>
+    @media print {
+      #noprint {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+</body>
+
+</html>

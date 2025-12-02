@@ -1,0 +1,221 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <link rel="stylesheet" type="text/css" href="../../../Semantic/semantic.min.css">
+  <link rel="stylesheet" href="../../../Semantic/jquery/jquery.datetimepicker.min.css">
+  <link rel="stylesheet" href="../../../Semantic/jquery-ui.css">
+  <link rel="stylesheet" href="../../../Semantic/jquery.modal.css" />
+  <!-- <link rel="stylesheet" href="css.css" /> -->
+  <link rel="stylesheet" href="../../../Semantic/jquery.toast.min.css">
+
+  <!-- <script src="../functions/cpfCnpjValidate.js"></script> -->
+
+  <!-- <script src="https://cdn.rawgit.com/notifyjs/notifyjs/0.4.2/dist/notify.js"></script> -->
+  <script src="../../../semantic/jquery.js" type="text/javascript"></script>
+  <script src="../../../semantic/jquery/jquery.js" type="text/javascript"></script>
+  <script src="../../functions/encodeDecode.js"></script>
+  <script src="../../../Semantic/jquery/datetimepicker.js"></script>
+  <script src="../../../semantic/semantic.min.js"></script>
+  <script type="text/javascript" src="../../../semantic/jquery-ui.js"></script>
+  <script type="text/javascript" src="../../servicos/servicoParametro.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script src="../../../semantic/jquery.modal.js"></script>
+  <script src="../../../Semantic/jquery/jquery.datetimepicker.full.js"></script>
+  <script src="../../../Semantic/jquery.toast.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+
+</head>
+
+<body>
+
+  <div class="ui main fluid container" style="position:fixed;">
+
+    <div id="noprint" class="ui menu big">
+      <a style="background-color: #fff; border: solid silver 1px; " class="active item" href="../../">
+        <img style="width:85px; height:32px;" src="../../img/bi.jpg" alt="blumenau Iluminacao">
+      </a>
+      <div class="ui menu">
+        <a href="../demanda/index.html" class="item ">
+          <i class="folder open icon blue"></i> Projeção
+        </a>
+        <a href="../demanda/index.html" target="_blank" class="item">
+          <i class="arrow right icon blue"></i>
+        </a>
+      </div>
+      <div class="ui menu">
+        <a href="../parametros/index.html" class="item ">
+          <i class="folder open icon blue"></i> Parâmetros
+        </a>
+        <a href="../parametros/index.html" target="_blank" class="item">
+          <i class="arrow right icon blue"></i>
+        </a>
+      </div>
+      <div class="ui menu">
+        <a href="../consumo/index.html" class="item ">
+          <i class="folder open icon blue"></i> Consumo
+        </a>
+        <a href="../consumo/index.html" target="_blank" class="item">
+          <i class="arrow right icon blue"></i>
+        </a>
+      </div>
+      <a class="item  ">
+        <i class="user icon blue"></i>
+        <div class="ui input">
+          <input disabled id="logado" />
+        </div>
+      </a>
+      <a class="item " href="../login/login.html">
+        <i class="plane icon blue"></i> Sair
+      </a>
+      <a style=" width:100%; display:inline; float: left; "></a>
+      <a style="background-color: #fff; border: solid silver 1px;" class="active item  "
+        href="https://blumenauiluminacao.com.br/" target="_blank">
+        <img style="width:85px; height:32px;" src="../../img/bi.jpg" alt="blumenau Iluminacao" height="30" width="150%">
+      </a>
+    </div>
+
+    <div class="ui card" style="width: 100%;">
+      <div class="content" style="background-color:#ccc;">
+        <div style="font-family:Verdana, Geneva, Tahoma, sans-serif;" class="header"><i class="clipboard icon"></i>
+          Cadastro dos parâmetros Demandas</div>
+      </div>
+      <div class="content">
+        <div class="ui form">
+          <div style="font-family:Verdana, Geneva, Tahoma, sans-serif;" class="three fields">
+            <div class="field">
+              <label title="Quantidade de meses para a média do valor de faturamento.">Quantidade Faturamento.</label>
+              <input id="usu_mesfat" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Quantidade de meses para média de quantidade de peças.">Quantidade de peças.</label>
+              <input id="usu_mescon" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Depósito a considerar para análise da posição de estoque.">Depósitos.</label>
+              <input id="usu_depcon" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Percentual a considerar par a análise de ruptura.">Percentual de ruptura.</label>
+              <input id="usu_perrup" type="text" placeholder="Digite o valor">
+            </div>
+          </div>
+          <div id="tabelaParametrosDemanda" class="table-wrapper">
+            <table class="ui celled striped table fixed-header">
+              <thead>
+                <tr>
+                  <!-- <th class="collapsing anoMes3">MÊS 3</th>
+                  <th class="collapsing anoMes4">MÊS 4</th>
+                  <th class="collapsing anoMes5">MÊS 5</th>
+                  <th class="collapsing anoMes6">MÊS 6</th> -->
+
+                </tr>
+              </thead>
+              <tbody class="dadosParametrosDemanda">
+              </tbody>
+            </table>
+
+          </div>
+          <br></br>
+          <div id="salvaParametrosDemanda" onclick="salvarParametroDemandas()" class="ui button salvarParametro"
+            tabindex="0">
+            <i class="save  icon"></i> Salvar
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ----------- Consumo ------------ -->
+
+    <!-- SELECT  USU_MARKU0, USU_MARKU1, USU_MARKU2, USU_MARKU3, USU_MARKU4, USU_MARKU5, USU_PERRUP -->
+    <div class="ui card" style="width: 100%;">
+      <div class="content" style="background-color:#ccc;">
+        <div style="font-family:Verdana, Geneva, Tahoma, sans-serif;" class="header"><i class="clipboard icon"></i>
+          Cadastro dos parâmetros Consumo</div>
+      </div>
+      <div class="content">
+        <div class="ui form">
+          <div style="font-family:Verdana, Geneva, Tahoma, sans-serif;" class="three fields">
+            <div class="field">
+              <label title="Campo para armazenar o Markup do Mês Atual ">M. Mês Atual</label>
+              <input maxlength="4" id="usu_marku0" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Campo para armazenar o Markup do Mês Atual + 1">M. Mês Atual + 1</label>
+              <input maxlength="4" id="usu_marku1" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Campo para armazenar o Markup do Mês Atual + 2">M. Mês Atual + 2</label>
+              <input maxlength="4" id="usu_marku2" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Campo para armazenar o Markup do Mês Atual + 3">M. Mês Atual + 3</label>
+              <input maxlength="4" id="usu_marku3" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Campo para armazenar o Markup do Mês Atual + 4">M. Mês Atual + 4</label>
+              <input maxlength="4" id="usu_marku4" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Campo para armazenar o Markup do Mês Atual + 5">M. Mês Atual + 5</label>
+              <input maxlength="4" id="usu_marku5" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Markup de compra para os produtos da curva A.">M. Curva A</label>
+              <input maxlength="4" id="usu_marku_A" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Markup de compra para os demais produtos das curvas B e C">M. Curva B e C</label>
+              <input maxlength="4" id="usu_marku_O" type="text" placeholder="Digite o valor">
+            </div>
+            <div class="field">
+              <label title="Campo para armazenar percentual de ruptura">Perc. ruptura</label>
+              <input maxlength="4" id="usu_perrupC" type="text" placeholder="Digite o valor">
+            </div>
+          </div>
+          <div id="tabelaParametrosDemanda" class="table-wrapper">
+            <table class="ui celled striped table fixed-header">
+              <thead>
+                <tr>
+
+                </tr>
+              </thead>
+              <tbody class="dadosParametrosConsumo">
+              </tbody>
+            </table>
+
+          </div>
+          <br></br>
+          <div id="salvaParametrosConsumo" onclick="salvarParametroConsumos()" class="ui button salvarParametroConsumo"
+            tabindex="0">
+            <i class="save  icon"></i> Salvar
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- <div class="iconBlu"
+        style="z-index: -1; position:fixed; width:150px; height:150px;  top: 50%; margin-top: -25px;  left: 50%; margin-left: -100px; ">
+        <img src="../../../img/b.png" alt="blumenau Iluminacao" height="30" width="150%"> <img>
+      </div> -->
+    <style>
+      @media print {
+        #noprint {
+          display: none;
+        }
+
+        body {
+          background: #fff;
+        }
+      }
+    </style>
+</body>
+
+</html>

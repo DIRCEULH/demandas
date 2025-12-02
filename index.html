@@ -1,0 +1,152 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <link rel="stylesheet" type="text/css" href="../Semantic/semantic.min.css">
+  <link rel="stylesheet" href="../Semantic/jquery/jquery.datetimepicker.min.css">
+  <link rel="stylesheet" href="../Semantic/jquery-ui.css">
+  <link rel="stylesheet" href="../Semantic/jquery.modal.css" />
+  <link rel="stylesheet" href="../Semantic/jquery.toast.min.css">
+
+
+  <script src="../Semantic/chart.js"></script>
+  <script src="../Semantic/jquery.js" type="text/javascript"></script>
+  <script src="../Semantic/jquery/jquery.js" type="text/javascript"></script>
+  <script src="functions/encodeDecode.js"></script>
+  <script src="../Semantic/jquery/datetimepicker.js"></script>
+  <script src="../Semantic/semantic.min.js"></script>
+  <script type="text/javascript" src="../../../semantic/jquery-ui.js"></script>
+
+  <script  src="servicos/servicoGraficos.js" type="text/javascript"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script src="../Semantic/jquery.modal.js"></script>
+  <script src="../Semantic/jquery/jquery.datetimepicker.full.js"></script>
+  <script src="../Semantic/jquery.toast.min.js"></script>
+  
+
+
+</head>
+
+<body>
+
+  <div class="ui main fluid container" style="position:fixed;">
+
+    <div id="noprint" class="ui menu big">
+      <a style="background-color: #fff; border: solid silver 1px; " class="active item" href="../demandas/">
+        <img style="width:85px; height:32px;" src="../../img/bi.jpg" alt="blumenau Iluminacao">
+      </a>
+      <div class="ui menu">
+        <a href="../demandas/vew/demanda/index.html" class="item ">
+          <i class="folder open icon blue"></i> Projeção
+        </a>
+        <a href="../demandas/vew/demanda/index.html" target="_blank" class="item">
+          <i class="arrow right icon blue"></i>
+        </a>
+      </div>
+      <div class="ui menu">
+        <a href="../demandas/vew/parametros/index.html" class="item ">
+          <i class="folder open icon blue"></i> Parâmetros
+        </a>
+        <a href="../demandas/vew/parametros/index.html" target="_blank" class="item">
+          <i class="arrow right icon blue"></i>
+        </a>
+      </div>
+      <div class="ui menu">
+        <a href="../demandas/vew/consumo/index.html" class="item ">
+          <i class="folder open icon blue"></i> Consumo
+        </a>
+        <a href="../demandas/vew/consumo/index.html" target="_blank" class="item">
+          <i class="arrow right icon blue"></i>
+        </a>
+      </div>
+      <a class="item  ">
+        <i class="user icon blue"></i>
+        <div class="ui input">
+          <input disabled id="logado" />
+        </div>
+      </a>
+      <a class="item " href="vew/login/login.html">
+        <i class="plane icon blue"></i> Sair
+      </a>
+      <a style=" width:100%; display:inline; float: left; "></a>
+      <a style="background-color: #fff; border: solid silver 1px;" class="active item  "
+        href="https://blumenauiluminacao.com.br/" target="_blank">
+        <img style="width:85px; height:32px;" src="../../img/bi.jpg" alt="blumenau Iluminacao" height="30" width="150%">
+      </a>
+    </div>
+
+    <!-- --------------------- Bem vindos---------------------- -->
+
+
+    <div class="ui fluid container" style="padding-left:10px; padding-right: 10px;">
+
+      <!-- Boas-vindas -->
+      <div class="ui message  info">
+        <h2 class="ui header">Bem-vindo ao Sistema de Demandas</h2>
+        <p>Use os menus abaixo para ver o descritivo de cada tela.</p>
+      </div>
+
+      <!-- Menu de Abas -->
+      <div class="ui top attached tabular menu">
+        <a class="item active" data-tab="dashboard"><i class="folder open icon blue"></i> Projeção</a>
+        <a class="item" data-tab="produtos"><i class="folder open icon blue"></i> Parâmetros</a>
+        <a class="item" data-tab="config"><i class="folder open icon blue"></i> Consumo</a>
+      </div>
+
+      <!-- Conteúdo das Abas -->
+      <div class="ui bottom attached tab segment active" data-tab="dashboard">
+        <h3 class="ui header"><i class="share icon"></i> Projeção</h3>
+        <p>O objetivo desta tela consiste em: <br>
+          • Projetar a demanda de compras do mês atual com base no histórico de vendas dos últimos meses. <br>
+          • Demonstrar o estoque disponível, utilizando o mesmo critério que é utilizado no ERP, ou seja, o disponível é
+          a quantidade em estoque menos as reservas. <br>
+          • Demonstrar o consumo médio, em quantidade, dos últimos 4 e 2 meses.
+        </p>
+      </div>
+
+      <div class="ui bottom attached tab segment" data-tab="produtos">
+        <h3 class="ui header"><i class="share icon"></i> Parâmetros</h3>
+        <p>O objetivo desta tela consiste em: <br>
+          • Cadastrar os parâmetros usados na tela de Demandas e Consumo. <br>
+          • O sistema fará os calculos conforme parâmetros dessa tela. <br>
+          • Estes paramatros somente poderão ser alterados no mes atual e antes de finalizar a projeção.
+        </p>
+      </div>
+
+      <div class="ui bottom attached tab segment" data-tab="config">
+        <h3 class="ui header"><i class="share icon"></i> Consumo</h3>
+        <p>O objetivo desta tela consiste em: <br>
+          • Garantir que a empresa tenha os recursos necessários disponíveis no momento certo e na quantidade adequada,
+          <br>
+          evitando excessos ou faltas de estoque e, consequentemente, otimizar os custos e melhorar o atendimento ao
+          cliente.</p><br>
+      </div>
+
+    </div>
+
+    <div style="margin-left:15px; margin-right:15px;" ><canvas   id="graficoConsumo" width="400" height="75"></canvas></div>
+
+  </div>
+
+  <!-- ------------------------------------------- -->
+
+
+  <!-- <div class="iconBlu"
+      style="z-index: -1; position:fixed; width:150px; height:150px;  top: 50%; margin-top: -25px;  left: 50%; margin-left: -100px; ">
+      <img src="../../../img/b.png" alt="blumenau Iluminacao" height="30" width="150%"><img>
+    </div> -->
+  <style>
+    @media print {
+      #noprint {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+</body>
+
+</html>

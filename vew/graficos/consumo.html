@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css" href="../../../Semantic/semantic.min.css">
+    <link rel="stylesheet" href="../../../Semantic/jquery-ui.css">
+    <link rel="stylesheet" href="css.css" />
+
+    <script type="text/javascript" src="../../servicos/servicoGraficos.js"></script>
+    <script src="../../../Semantic/chart.js"></script>
+    <script src="../../../Semantic/jquery.js" type="text/javascript"></script>
+     <script src="../../../Semantic/semantic.min.js"></script>
+    <script src="consumo.js"></script>
+
+
+
+</head>
+
+
+<body>
+    <div class="ui fluid container" style="position:fixed;">
+        <div id="noprint" class="ui menu big">
+            <a style="background-color: #fff; border: solid silver 1px; " class="active item" href="../../">
+                <img style="width:85px; height:32px;" src="../../img/bi.jpg" alt="blumenau Iluminacao">
+            </a>
+            <div class="ui menu">
+                <a href="../demanda/index.html" class="item ">
+                    <i class="folder open icon blue"></i> Projeção
+                </a>
+                <a href="../demanda/index.html" target="_blank" class="item">
+                    <i class="arrow right icon blue"></i>
+                </a>
+            </div>
+            <div class="ui menu">
+                <a href="../parametros/index.html" class="item ">
+                    <i class="folder open icon blue"></i> Parâmetros
+                </a>
+                <a href="../parametros/index.html" target="_blank" class="item">
+                    <i class="arrow right icon blue"></i>
+                </a>
+            </div>
+            <div class="ui menu">
+                <a href="../consumo/index.html" class="item ">
+                    <i class="folder open icon blue"></i> Consumo
+                </a>
+                <a href="../consumo/index.html" target="_blank" class="item">
+                    <i class="arrow right icon blue"></i>
+                </a>
+            </div>
+            <a class="item  ">
+                <i class="user icon blue"></i>
+                <div class="ui input">
+                    <input disabled id="logado" />
+                </div>
+            </a>
+            <a class="item " href="../login/login.html">
+                <i class="plane icon blue"></i> Sair
+            </a>
+            <a style=" width:100%; display:inline; float: left; "></a>
+            <a style="background-color: #fff; border: solid silver 1px;" class="active item  "
+                href="https://blumenauiluminacao.com.br/" target="_blank">
+                <img style="width:85px; height:32px;" src="../../img/bi.jpg" alt="blumenau Iluminacao" height="30"
+                    width="150%">
+            </a>
+        </div>
+
+      <canvas id="graficoConsumo" width="400" height="160" ></canvas>
+      
+    </div>
+
+
+
+
+</body>
+</html>

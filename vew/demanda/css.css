@@ -1,0 +1,136 @@
+body {
+  background-color: #f0f0f0;
+  touch-action: manipulation;
+} 
+
+/* Scrollbar estilizado - Chrome/Safari */
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+/* Firefox scrollbar */
+.table-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.2) transparent;
+}
+
+/* Setas de navegação */
+
+
+.scroll-arrow:hover {
+  background: rgba(240, 240, 240, 1);
+}
+
+.ui.table.fixed-header {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.ui.table.fixed-header thead {
+  position: sticky;
+  top: 0;
+  background: #000;
+  z-index: 10;
+}
+
+.table-wrapper table {
+  width: 100%;
+ /* table-layout: fixed; */
+}
+
+.table-wrapper {
+  max-height: 78vh; /* Ajuste a altura conforme necessário */
+  overflow-y: auto; /* Permite o scroll vertical */
+  overflow-x: auto; /* Permite o scroll horizontal */
+  margin-top: -10px;
+  
+}
+
+#ellipsed {
+  word-wrap: break-word;
+  white-space: nowrap ;
+  overflow: hidden ;
+  text-overflow: ellipsis ;
+  
+}
+
+.tableRodaPe {
+  width: 100%; 
+  table-layout: fixed; 
+  border-collapse: collapse; 
+  position: fixed; bottom:0;
+}
+
+.ui.table th,
+.ui.table td {
+  padding:6px;
+  font-size: 12px;
+} 
+
+
+
+.sync-icon {
+  font-size: 40px; /* Tamanho do ícone */
+  color: #00BFFF; /* Cor do ícone */
+  animation: rotate 1.5s linear infinite; /* Animação contínua */
+}
+
+.overlay {
+  display: none !important;  /* Isso vai garantir que a sobreposição nunca apareça */
+}
+
+.green {
+  background-color: #c6efcb; /* Cor verde */
+  color: #000; /* Para melhorar a legibilidade */
+}
+
+.red {
+  background-color: #f38264 ; /* Cor verde */
+  color: #000; /* Para melhorar a legibilidade */
+}
+
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.pace-inactive {
+	display: none;
+}
+
+.pace .pace-progress {
+	background: #29d !important;
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	right: 100%;
+	width: 100%;
+	height: 2px;
+}
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
