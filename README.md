@@ -12,6 +12,8 @@ Analisar a demanda por produto;
 Identificar padrões de consumo;
 Projetar a demanda futura com base nos dados analisados;
 Gerar insights para reposição de estoque.
+
+
 ⚙️ Integração
 
 O sistema se integra ao ERP da Senior para garantir:
@@ -19,6 +21,8 @@ O sistema se integra ao ERP da Senior para garantir:
 Sincronização automática de dados de vendas;
 Atualização contínua das informações;
 Confiabilidade e consistência dos dados utilizados na análise.
+
+
 🎯 Resultado Esperado
 
 Com essas informações, o projeto permite:
