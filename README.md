@@ -31,3 +31,11 @@ Melhorar o planejamento de estoque;
 Evitar falta ou excesso de produtos;
 Otimizar o processo de reposição;
 Apoiar a tomada de decisão com base em dados.
+
+
+Copyright (c) 2026 Dirceu Heineck
+
+Todos os direitos reservados.
+
+Este software e os arquivos associados não podem ser utilizados, copiados,
+modificados ou distribuídos sem autorização expressa do autor.
